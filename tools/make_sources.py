@@ -55,6 +55,78 @@ def lig_anchors(gs, n):
     alef, lam = runs[0], runs[-1]
     lx, ax = (lam[0] + lam[-1]) / 2 - 100, (alef[0] + alef[-1]) / 2 - 100
     return lx, top_at(lam) + 62, ax, top_at(alef) + 62
+
+# ---------- Google Fonts nice names + Latin Core extras ----------
+GF_RENAME = {'uni0300': 'gravecomb', 'uni0301': 'acutecomb', 'uni0302': 'circumflexcomb', 'uni0303': 'tildecomb',
+             'uni0304': 'macroncomb', 'uni0306': 'brevecomb', 'uni0307': 'dotaccentcomb', 'uni0308': 'dieresiscomb',
+             'uni030A': 'ringcomb', 'uni030B': 'hungarumlautcomb', 'uni030C': 'caroncomb', 'uni0326': 'commaaccentcomb',
+             'uni0327': 'cedillacomb', 'uni0328': 'ogonekcomb', 'guillemotleft': 'guillemetleft',
+             'guillemotright': 'guillemetright', 'dotlessi': 'idotless', 'dotlessj': 'jdotless',
+             'uni021A': 'Tcommaaccent', 'uni021B': 'tcommaaccent', 'uni1E9E': 'Germandbls'}
+
+def _copy_glyph(u, src, dst, dy=0, unicodes=()):
+    from fontTools.pens.transformPen import TransformPen
+    g = u.newGlyph(dst) if dst not in u else u[dst]
+    g.clearContours(); g.clearComponents()
+    u[src].draw(TransformPen(g.getPen(), (1, 0, 0, 1, 0, dy)))
+    g.width = u[src].width; g.unicodes = list(unicodes); return g
+
+def gf_names(u, fea):
+    # 1) renames (glyphs, components, glyph order, features)
+    for old, new in GF_RENAME.items():
+        if old in u and new not in u: u.renameGlyph(old, new)
+    for g in u:
+        for c in g.components:
+            if c.baseGlyph in GF_RENAME: c.baseGlyph = GF_RENAME[c.baseGlyph]
+    u.lib['public.glyphOrder'] = [GF_RENAME.get(n, n) for n in u.lib.get('public.glyphOrder', [])]
+    for old, new in GF_RENAME.items():
+        fea = re.sub(r'(?<![\w.])' + re.escape(old) + r'(?![\w.])', new, fea)
+    order = u.lib['public.glyphOrder']
+    # 2) no-break space as its own glyph
+    if 'nbspace' not in u:
+        sp = u['space']; sp.unicodes = [c for c in sp.unicodes if c != 0xA0]
+        g = u.newGlyph('nbspace'); g.width = sp.width; g.unicodes = [0xA0]; order.append('nbspace')
+    # 3) Catalan middle dot (l·l / L·L) and Turkish dotted i
+    pc = u['periodcentered']; b = pc.getBounds(u)
+    _copy_glyph(u, 'periodcentered', 'periodcentered.loclCAT')
+    lc = (LCAP / 2) - ((b.yMin + b.yMax) / 2) if b else 0
+    _copy_glyph(u, 'periodcentered', 'periodcentered.loclCAT.case', dy=round(lc))
+    _copy_glyph(u, 'i', 'idotaccent')
+    # 4) caroncomb.alt = the side caron used in d-caron / l-caron / t-caron
+    dc, d = u['dcaron'], u['d']
+    db = d.getBounds(u)
+    alt = u.newGlyph('caroncomb.alt') if 'caroncomb.alt' not in u else u['caroncomb.alt']
+    alt.clearContours(); pen = alt.getPen()
+    from fontTools.pens.transformPen import TransformPen
+    parts = [c for c in dc.contours if min(p.x for p in c.points) > db.xMax - 5]
+    x0 = min(p.x for c in parts for p in c.points) if parts else 0
+    for c in parts: c.draw(TransformPen(pen, (1, 0, 0, 1, -x0 + 20, 0)))
+    alt.width = 0
+    for n in ('periodcentered.loclCAT', 'periodcentered.loclCAT.case', 'idotaccent', 'caroncomb.alt'):
+        if n not in order: order.append(n)
+    # features: language systems + locl
+    fea = fea.replace('languagesystem latn dflt;', 'languagesystem latn dflt;\nlanguagesystem latn CAT;\nlanguagesystem latn TRK;\nlanguagesystem latn AZE;\nlanguagesystem latn CRT;\nlanguagesystem latn KAZ;\nlanguagesystem latn TAT;', 1)
+    fea += """
+feature locl {
+  script latn;
+  language CAT;
+    sub l periodcentered' l by periodcentered.loclCAT;
+    sub L periodcentered' L by periodcentered.loclCAT.case;
+  language TRK;
+    sub i by idotaccent;
+  language AZE;
+    sub i by idotaccent;
+  language CRT;
+    sub i by idotaccent;
+  language KAZ;
+    sub i by idotaccent;
+  language TAT;
+    sub i by idotaccent;
+} locl;
+"""
+    # caroncomb.alt is a mark like the other combining accents
+    fea = fea.replace('caroncomb fathatan', 'caroncomb caroncomb.alt fathatan', 1)
+    return fea
 for wt, wc in WEIGHTS.items():
     src = f'src/sources/Ameer070-{wt}.ufo'; dst = f'release/sources/Ameer070-{wt}.ufo'
     shutil.rmtree(dst, ignore_errors=True); shutil.copytree(src, dst)
@@ -141,6 +213,7 @@ for wt, wc in WEIGHTS.items():
     sv = f'work/solve_{wt}.fea'
     if os.environ.get('SOLVE') == '1' and os.path.exists(sv):
         fea += '\n# contextual tashkeel clearance (qa/ctxsolve.py)\n' + open(sv).read()
+    fea = gf_names(u, fea)
     u.features.text = fea
     u.save(dst, overwrite=True)
     print(wt, 'ufo written', len(t.getGlyphOrder()), 'glyphs, latin kern', len(pairs))

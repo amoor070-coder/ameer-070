@@ -15,6 +15,8 @@ ChangeLog
 - New: Saudi Riyal sign U+20C1, built from the official artwork published by the Saudi Central Bank (SAMA)
   and adapted per SAMA's Font Designers' Guidelines (weight and width per style; structure and proportions kept;
   lam top on the Latin figure height, lam on the baseline).
+- Full GF Latin Core glyph names: combining accents and other glyphs renamed to Google Fonts names; added nbspace,
+  caroncomb.alt, idotaccent (Turkish/Azeri/Crimean Tatar/Kazakh/Tatar locl) and the Catalan middle dot (l·l).
 
 2026-11-20 (v2.000)
 - Arabic letters redrawn as a monoline system with soft hexagon-inspired joins; every letter balanced against

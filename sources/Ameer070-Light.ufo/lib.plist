@@ -261,7 +261,7 @@
       <string>section</string>
       <string>copyright</string>
       <string>ordfeminine</string>
-      <string>guillemotleft</string>
+      <string>guillemetleft</string>
       <string>logicalnot</string>
       <string>registered</string>
       <string>degree</string>
@@ -272,15 +272,15 @@
       <string>paragraph</string>
       <string>onesuperior</string>
       <string>ordmasculine</string>
-      <string>guillemotright</string>
+      <string>guillemetright</string>
       <string>onequarter</string>
       <string>onehalf</string>
       <string>threequarters</string>
       <string>questiondown</string>
       <string>multiply</string>
       <string>divide</string>
-      <string>dotlessi</string>
-      <string>dotlessj</string>
+      <string>idotless</string>
+      <string>jdotless</string>
       <string>quotesinglbase</string>
       <string>quotedblbase</string>
       <string>dagger</string>
@@ -309,20 +309,20 @@
       <string>ogonek</string>
       <string>tilde</string>
       <string>hungarumlaut</string>
-      <string>uni0300</string>
-      <string>uni0301</string>
-      <string>uni0302</string>
-      <string>uni0303</string>
-      <string>uni0304</string>
-      <string>uni0306</string>
-      <string>uni0307</string>
-      <string>uni0308</string>
-      <string>uni030A</string>
-      <string>uni030B</string>
-      <string>uni030C</string>
-      <string>uni0326</string>
-      <string>uni0327</string>
-      <string>uni0328</string>
+      <string>gravecomb</string>
+      <string>acutecomb</string>
+      <string>circumflexcomb</string>
+      <string>tildecomb</string>
+      <string>macroncomb</string>
+      <string>brevecomb</string>
+      <string>dotaccentcomb</string>
+      <string>dieresiscomb</string>
+      <string>ringcomb</string>
+      <string>hungarumlautcomb</string>
+      <string>caroncomb</string>
+      <string>commaaccentcomb</string>
+      <string>cedillacomb</string>
+      <string>ogonekcomb</string>
       <string>Agrave</string>
       <string>agrave</string>
       <string>Aacute</string>
@@ -438,8 +438,8 @@
       <string>zcaron</string>
       <string>Scommaaccent</string>
       <string>scommaaccent</string>
-      <string>uni021A</string>
-      <string>uni021B</string>
+      <string>Tcommaaccent</string>
+      <string>tcommaaccent</string>
       <string>Wgrave</string>
       <string>wgrave</string>
       <string>Wacute</string>
@@ -477,7 +477,7 @@
       <string>oe</string>
       <string>Hbar</string>
       <string>hbar</string>
-      <string>uni1E9E</string>
+      <string>Germandbls</string>
       <string>fathatan</string>
       <string>dammatan</string>
       <string>kasratan</string>
@@ -615,6 +615,11 @@
       <string>hairspace</string>
       <string>narrownbspace</string>
       <string>uni20C1</string>
+      <string>nbspace</string>
+      <string>periodcentered.loclCAT</string>
+      <string>periodcentered.loclCAT.case</string>
+      <string>idotaccent</string>
+      <string>caroncomb.alt</string>
     </array>
   </dict>
 </plist>

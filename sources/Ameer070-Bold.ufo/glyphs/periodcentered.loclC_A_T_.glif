@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="periodcentered.loclCAT" format="2">
+  <advance width="239"/>
+  <outline>
+    <contour>
+      <point x="113" y="310" type="line"/>
+      <point x="111" y="310" type="line" smooth="yes"/>
+      <point x="110" y="310"/>
+      <point x="109" y="309"/>
+      <point x="108" y="309" type="qcurve"/>
+      <point x="59" y="282" type="line"/>
+      <point x="47" y="277"/>
+      <point x="47" y="265" type="qcurve" smooth="yes"/>
+      <point x="47" y="211" type="line" smooth="yes"/>
+      <point x="47" y="200"/>
+      <point x="57" y="195" type="qcurve"/>
+      <point x="57" y="194" type="line"/>
+      <point x="108" y="167" type="line"/>
+      <point x="109" y="167"/>
+      <point x="110" y="166"/>
+      <point x="111" y="166" type="qcurve" smooth="yes"/>
+      <point x="114" y="166" type="line"/>
+      <point x="117" y="165"/>
+      <point x="123" y="165"/>
+      <point x="126" y="166" type="qcurve"/>
+      <point x="129" y="166" type="line"/>
+      <point x="129" y="166"/>
+      <point x="130" y="167"/>
+      <point x="131" y="167" type="qcurve"/>
+      <point x="180" y="194" type="line" smooth="yes"/>
+      <point x="192" y="200"/>
+      <point x="192" y="211" type="qcurve" smooth="yes"/>
+      <point x="192" y="265" type="line" smooth="yes"/>
+      <point x="192" y="276"/>
+      <point x="181" y="282" type="qcurve" smooth="yes"/>
+      <point x="130" y="308" type="line"/>
+      <point x="130" y="309" type="line"/>
+      <point x="129" y="309"/>
+      <point x="128" y="309" type="qcurve"/>
+      <point x="124" y="311"/>
+      <point x="120" y="311" type="qcurve" smooth="yes"/>
+      <point x="117" y="311"/>
+      <point x="114" y="310" type="qcurve"/>
+    </contour>
+  </outline>
+</glyph>
