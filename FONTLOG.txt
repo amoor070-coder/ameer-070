@@ -7,6 +7,15 @@ Ameer 070 is a bilingual Arabic/Latin sans-serif family in four static weights: 
 
 ChangeLog
 ---------
+2026-11-20 (v2.001)
+- Tashkeel: new contextual clearance pass (tools/ctxsolve.py) so harakat no longer touch neighbouring
+  letters, dots or the marks of the next letter, in every weight.
+- Bold/Black: opened the counters of tah/zah and waw (and waw-hamza) so they stay clear at heavy weights.
+- Lam-alef ligatures: mark anchors regenerated from the new stems (e.g. the fatha in الْأَرْض no longer sits on the hamza).
+- New: Saudi Riyal sign U+20C1, built from the official artwork published by the Saudi Central Bank (SAMA)
+  and adapted per SAMA's Font Designers' Guidelines (weight and width per style; structure and proportions kept;
+  lam top on the Latin figure height, lam on the baseline).
+
 2026-11-20 (v2.000)
 - Arabic letters redrawn as a monoline system with soft hexagon-inspired joins; every letter balanced against
   reference proportions (top/bottom and left/right rulers), in all four weights.

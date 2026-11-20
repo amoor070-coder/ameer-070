@@ -22,6 +22,39 @@ def top_anchor(t, gs, n):
     band = [p[0] for p in pts if p[1] >= top - max(120, 0.22 * (top - bot))]
     bandb = [p[0] for p in pts if p[1] <= bot + max(120, 0.22 * (top - bot))]
     return ((min(band) + max(band)) / 2, top + 62, (min(bandb) + max(bandb)) / 2, min(bot, 0) - 58)
+
+def lig_anchors(gs, n):
+    """lam-alef ligatures: (lam top, lam bottom, alef top, alef bottom) anchors from the two stems"""
+    import skia, numpy as np
+    rp = RecordingPen(); gs[n].draw(rp)
+    sp = skia.Path()
+    for op, a in rp.value:
+        if op == 'moveTo': sp.moveTo(*a[0])
+        elif op == 'lineTo': sp.lineTo(*a[0])
+        elif op == 'qCurveTo':
+            pp = list(a)
+            while len(pp) > 2:
+                mid = ((pp[0][0] + pp[1][0]) / 2, (pp[0][1] + pp[1][1]) / 2); sp.quadTo(*pp[0], *mid); pp = pp[1:]
+            sp.quadTo(*pp[0], *pp[1])
+        elif op == 'curveTo': sp.cubicTo(*a[0], *a[1], *a[2])
+        elif op == 'closePath': sp.close()
+    Wd, Ht = 1200, 1400
+    surf = skia.Surface(Wd, Ht); c = surf.getCanvas(); c.clear(0)
+    m = skia.Matrix(); m.setAll(1, 0, 100, 0, -1, 1100, 0, 0, 1); c.concat(m)
+    c.drawPath(sp, skia.Paint(AntiAlias=False, Color=0xFFFFFFFF))
+    a = surf.toarray()[:, :, 0] > 0
+    band = a[1100 - 600:1100 - 380, :]           # y 380..600: only the two stems are inked here
+    cols = np.where(band.any(axis=0))[0]
+    runs = np.split(cols, np.where(np.diff(cols) > 1)[0] + 1)
+    runs = [r for r in runs if len(r) > 10]
+    if len(runs) < 2: return None
+    def top_at(r):
+        x0, x1 = r[0] - 60, r[-1] + 60
+        ys = np.where(a[:, max(0, x0):x1].any(axis=1))[0]
+        return 1100 - ys.min()
+    alef, lam = runs[0], runs[-1]
+    lx, ax = (lam[0] + lam[-1]) / 2 - 100, (alef[0] + alef[-1]) / 2 - 100
+    return lx, top_at(lam) + 62, ax, top_at(alef) + 62
 for wt, wc in WEIGHTS.items():
     src = f'src/sources/Ameer070-{wt}.ufo'; dst = f'release/sources/Ameer070-{wt}.ufo'
     shutil.rmtree(dst, ignore_errors=True); shutil.copytree(src, dst)
@@ -39,7 +72,7 @@ for wt, wc in WEIGHTS.items():
     u.lib['public.glyphOrder'] = order
     # ---- metadata
     i = u.info
-    i.versionMajor, i.versionMinor = 2, 0
+    i.versionMajor, i.versionMinor = 2, 1
     i.copyright = (f'Copyright 2026 The Ameer 070 Project Authors ({REPO}). '
                    'Hamza forms adapted from Alexandria, Copyright 2022 The Alexandria Project Authors (https://github.com/Gue3bara/Alexandria).')
     i.openTypeNameDesigner = 'Ameer Ibrahim'
@@ -77,6 +110,16 @@ for wt, wc in WEIGHTS.items():
         if not a: return m.group(0)
         return f'    pos base {n} <anchor {round(a[0])} {round(a[1])}> mark @MARK_TOP <anchor {round(a[2])} {round(a[3])}> mark @MARK_BOTTOM;'
     fea = re.sub(r'^    pos base (\S+) <anchor -?\d+ -?\d+> mark @MARK_TOP <anchor -?\d+ -?\d+> mark @MARK_BOTTOM;', repl, fea, flags=re.M)
+    def lrepl(m):
+        n = m.group(1)
+        if n not in gs: return m.group(0)
+        r = lig_anchors(gs, n)
+        if not r: return m.group(0)
+        lx, ly, ax, ay = r
+        b1, b2 = m.group(3), m.group(5)
+        return (f'    pos ligature {n} <anchor {round(lx)} {round(ly)}> mark @MARK_TOP <anchor {round(lx)} {b1}> mark @MARK_BOTTOM '
+                f'ligComponent <anchor {round(ax)} {round(ay)}> mark @MARK_TOP <anchor {round(ax)} {b2}> mark @MARK_BOTTOM;')
+    fea = re.sub(r'^    pos ligature (lamAlef\S*) <anchor (-?\d+) -?\d+> mark @MARK_TOP <anchor -?\d+ (-?\d+)> mark @MARK_BOTTOM ligComponent <anchor (-?\d+) -?\d+> mark @MARK_TOP <anchor -?\d+ (-?\d+)> mark @MARK_BOTTOM;', lrepl, fea, flags=re.M)
     # Latin kerning: the new optical pairs
     pairs = json.load(open(f'work/kern_{wt}.json'))
     body = '\n'.join(f'    pos {a} {b} {v};' for a, b, v in pairs)
@@ -95,6 +138,9 @@ for wt, wc in WEIGHTS.items():
     if 'uni25CC' in gs and 'pos base uni25CC' not in fea:
         a = top_anchor(t, gs, 'uni25CC')
         fea = fea.replace('feature mark {\n  script arab;\n', 'feature mark {\n  script arab;\n' + f'    pos base uni25CC <anchor {round(a[0])} {round(a[1])}> mark @MARK_TOP <anchor {round(a[2])} {round(a[3])}> mark @MARK_BOTTOM;\n', 1)
+    sv = f'work/solve_{wt}.fea'
+    if os.environ.get('SOLVE') == '1' and os.path.exists(sv):
+        fea += '\n# contextual tashkeel clearance (qa/ctxsolve.py)\n' + open(sv).read()
     u.features.text = fea
     u.save(dst, overwrite=True)
     print(wt, 'ufo written', len(t.getGlyphOrder()), 'glyphs, latin kern', len(pairs))

@@ -614,6 +614,7 @@
       <string>thinspace</string>
       <string>hairspace</string>
       <string>narrownbspace</string>
+      <string>uni20C1</string>
     </array>
   </dict>
 </plist>

@@ -195,17 +195,19 @@ jic = dotcenter('jeem.isol')
 new['jeem.isol'] = (union(clip(hah_bowl(), y0=-301), dots('jeem.isol', 275 - jic[0], -95 - jic[1])), 520)
 
 # ---------- TAH: upright stem, rounded bowl springing from the stem (Alexandria/Plex structure) ----------
+TDX = round(max(0, K - 1) * 70); TDY = round(max(0, K - 1) * 45)   # heavy weights: open the tah counter
 def tah(entry, exit_):
+    R, T = 455 + TDX, 380 + TDY
     parts = [stroke(f'M 115 760 L 115 0', W), stroke(f'M 76 {Y} L 160 {Y}', W),
-             stroke(f'M 117 250 C 145 335 210 380 295 380 C 400 380 455 305 455 200 L 455 {Y} L 115 {Y}', W)]
+             stroke(f'M 117 {250 + TDY // 2} C 145 {335 + TDY} {210 + TDX // 3} {T} {295 + TDX // 2} {T} C {400 + TDX} {T} {R} {305 + TDY} {R} {200 + TDY // 2} L {R} {Y} L 115 {Y}', W)]
     if exit_: parts.append(stroke(f'M -8 {Y} L 120 {Y}', W))
-    if entry: parts.append(stroke(f'M 440 {Y} L 528 {Y}', W))
+    if entry: parts.append(stroke(f'M {440 + TDX} {Y} L {528 + TDX} {Y}', W))
     body = clip(union(*parts), y0=0, y1=715)
     return subtract(body, fill('M 40 690 L 200 714 L 200 760 L 40 760 Z'))
-new['tah.init'] = (tah(False, True), 520)
-new['tah.medi'] = (tah(True, True), 520)
-new['tah.fina'] = (tah(True, False), 520)
-new['tah.isol'] = (tah(False, False), 540)
+new['tah.init'] = (tah(False, True), 520 + TDX)
+new['tah.medi'] = (tah(True, True), 520 + TDX)
+new['tah.fina'] = (tah(True, False), 520 + TDX)
+new['tah.isol'] = (tah(False, False), 540 + TDX)
 
 # ---------- FEH / QAF init+medi: loop rises smoothly out of the baseline, no nubs ----------
 LOOP = f'M -8 {Y} L 330 {Y} C 395 {Y} 420 120 420 205 C 420 315 355 378 275 378 C 190 378 128 318 128 225 C 128 120 160 {Y} 240 {Y}'
@@ -219,11 +221,12 @@ new['feh.medi'] = (union(loop_medi, dots('feh.medi', 276 - dotcenter('feh.medi')
 new['dotlessQaf.init'] = (loop_init, 470)
 
 # ---------- WAW: round head on the reh body (same tail as reh) ----------
-WAW_HEAD = f'M 322 250 C 322 318 272 345 208 345 C 124 345 78 285 78 195 C 78 102 128 {Y} 208 {Y} L 322 {Y}'
-WAW_STEM = 'M 322 300 L 322 40 C 322 -145 195 -232 -22 -255'
+WDX = round(max(0, K - 1) * 40); WDY = round(max(0, K - 1) * 35)   # heavy weights: open the waw head
+WAW_HEAD = f'M 322 {250 + WDY // 2} C 322 {318 + WDY} {272 - WDX // 2} {345 + WDY} {208 - WDX // 2} {345 + WDY} C {124 - WDX} {345 + WDY} {78 - WDX} {285 + WDY // 2} {78 - WDX} {195 + WDY // 3} C {78 - WDX} 102 {128 - WDX // 2} {Y} {208 - WDX // 2} {Y} L 322 {Y}'
+WAW_STEM = f'M 322 {300 + WDY} L 322 40 C 322 -145 195 -232 -22 -255'
 waw = union(stroke(WAW_HEAD, W), stroke(WAW_STEM, W))
-new['waw.isol'] = (shift(waw, 0), 405)
-new['waw.fina'] = (union(waw, stroke(f'M 300 {Y} L 413 {Y}', W)), 405)
+new['waw.isol'] = (shift(waw, WDX), 405 + WDX)
+new['waw.fina'] = (union(shift(waw, WDX), stroke(f'M {300 + WDX} {Y} L {413 + WDX} {Y}', W)), 405 + WDX)
 
 # ---------- MEEM: low wide oval (clearly lower/wider than the tall feh/qaf egg) ----------
 def oval(cx, w, h, y0=None):
@@ -393,8 +396,8 @@ for nm in ('kaf.isol', 'kaf.fina'):
     AXG = _AXG
     o = pathops.Path(); km.draw(TransformPen(o.getPen(), (1, 0, 0, 1, (ob[0] + ob[2]) / 2 - (kb[0] + kb[2]) / 2, (ob[1] + ob[3]) / 2 - (kb[1] + kb[3]) / 2 + 10)))
     new[nm] = (union(body, _reg(o)), f['hmtx'][nm][0])
-new['wawHamza.isol'] = (union(waw, mark(200, 430)), 405)
-new['wawHamza.fina'] = (union(waw, stroke(f'M 300 {Y} L 413 {Y}', W), mark(200, 430)), 405)
+new['wawHamza.isol'] = (union(shift(waw, WDX), mark(200 + WDX // 2, 430 + WDY)), 405 + WDX)
+new['wawHamza.fina'] = (union(shift(waw, WDX), stroke(f'M {300 + WDX} {Y} L {413 + WDX} {Y}', W), mark(200 + WDX // 2, 430 + WDY)), 405 + WDX)
 
 new['yehHamza.fina'] = (union(yeh_body, mark(360, 120)), 752)
 
@@ -428,7 +431,7 @@ new['tcheh.isol'] = (union(hah_isol, tri_dots('tcheh.isol', 262, -110)), 500)
 # ZAH = TAH + dot
 for frm in ('init', 'medi', 'fina', 'isol'):
     tp, adv = new['tah.' + frm]
-    new['zah.' + frm] = (union(tp, dot_from('zah.' + frm, 300, 560)), adv)
+    new['zah.' + frm] = (union(tp, dot_from('zah.' + frm, 300 + TDX // 2, 560 + TDY)), adv)
 # GHAIN medial = new ain medial + dot
 new['ghain.medi'] = (union(new['ain.medi'][0], dot_from('ghain.medi', 250 + 2 * _a, 480 + _t)), 440 + 2 * _a)
 new['ghain.isol'] = (union(new['ain.isol'][0], dot_from('ghain.isol', 285, 540)), 585)
