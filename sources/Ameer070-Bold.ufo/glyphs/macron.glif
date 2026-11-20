@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="macron" format="2">
+  <advance width="465"/>
+  <unicode hex="00AF"/>
+  <outline>
+    <contour>
+      <point x="70" y="615" type="line" smooth="yes"/>
+      <point x="59" y="615"/>
+      <point x="47" y="604"/>
+      <point x="47" y="595" type="qcurve" smooth="yes"/>
+      <point x="47" y="540" type="line" smooth="yes"/>
+      <point x="47" y="531"/>
+      <point x="59" y="521"/>
+      <point x="69" y="521" type="qcurve" smooth="yes"/>
+      <point x="396" y="521" type="line" smooth="yes"/>
+      <point x="406" y="521"/>
+      <point x="418" y="531"/>
+      <point x="418" y="540" type="qcurve" smooth="yes"/>
+      <point x="418" y="595" type="line" smooth="yes"/>
+      <point x="418" y="604"/>
+      <point x="406" y="615"/>
+      <point x="396" y="615" type="qcurve" smooth="yes"/>
+    </contour>
+  </outline>
+</glyph>

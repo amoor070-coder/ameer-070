@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="hah.medi" format="2">
+  <advance width="494"/>
+  <unicode hex="FEA4"/>
+  <outline>
+    <contour>
+      <point x="260" y="306" type="qcurve" smooth="yes"/>
+      <point x="339" y="306"/>
+      <point x="374" y="276" type="qcurve" smooth="yes"/>
+      <point x="405" y="252"/>
+      <point x="405" y="205" type="qcurve" smooth="yes"/>
+      <point x="405" y="79" type="line"/>
+      <point x="-8" y="79" type="line"/>
+      <point x="-8" y="0" type="line"/>
+      <point x="502" y="0" type="line"/>
+      <point x="502" y="79" type="line"/>
+      <point x="484" y="79" type="line"/>
+      <point x="484" y="205" type="line" smooth="yes"/>
+      <point x="484" y="245"/>
+      <point x="469" y="278" type="qcurve" smooth="yes"/>
+      <point x="454" y="313"/>
+      <point x="425" y="337" type="qcurve" smooth="yes"/>
+      <point x="368" y="385"/>
+      <point x="260" y="385" type="qcurve" smooth="yes"/>
+      <point x="102" y="385"/>
+      <point x="12" y="296" type="qcurve"/>
+      <point x="68" y="240" type="line"/>
+      <point x="135" y="306"/>
+    </contour>
+  </outline>
+</glyph>

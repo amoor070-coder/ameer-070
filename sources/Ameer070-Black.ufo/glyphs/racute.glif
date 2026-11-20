@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="racute" format="2">
+  <advance width="379"/>
+  <unicode hex="0155"/>
+  <outline>
+    <contour>
+      <point x="56" y="0" type="line"/>
+      <point x="220" y="0" type="line"/>
+      <point x="220" y="296" type="line"/>
+      <point x="229" y="339"/>
+      <point x="250" y="353" type="qcurve" smooth="yes"/>
+      <point x="266" y="363"/>
+      <point x="304" y="363" type="qcurve" smooth="yes"/>
+      <point x="364" y="363" type="line"/>
+      <point x="364" y="485" type="line"/>
+      <point x="304" y="485" type="line" smooth="yes"/>
+      <point x="257" y="485"/>
+      <point x="219" y="476" type="qcurve"/>
+      <point x="56" y="476" type="line"/>
+    </contour>
+    <contour>
+      <point x="94" y="593" type="line"/>
+      <point x="89" y="587"/>
+      <point x="89" y="580" type="qcurve" smooth="yes"/>
+      <point x="89" y="570"/>
+      <point x="105" y="554"/>
+      <point x="116" y="554" type="qcurve" smooth="yes"/>
+      <point x="226" y="554" type="line" smooth="yes"/>
+      <point x="241" y="554"/>
+      <point x="248" y="567" type="qcurve"/>
+      <point x="249" y="567" type="line"/>
+      <point x="338" y="718" type="line"/>
+      <point x="338" y="719" type="line" smooth="yes"/>
+      <point x="338" y="720"/>
+      <point x="339" y="721"/>
+      <point x="339" y="722" type="qcurve" smooth="yes"/>
+      <point x="339" y="723" type="line"/>
+      <point x="341" y="727"/>
+      <point x="341" y="731" type="qcurve" smooth="yes"/>
+      <point x="341" y="741"/>
+      <point x="334" y="749" type="qcurve" smooth="yes"/>
+      <point x="326" y="758"/>
+      <point x="313" y="757" type="qcurve"/>
+      <point x="205" y="757" type="line" smooth="yes"/>
+      <point x="188" y="757"/>
+      <point x="182" y="743" type="qcurve"/>
+    </contour>
+  </outline>
+</glyph>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="brokenbar" format="2">
+  <advance width="142"/>
+  <unicode hex="00A6"/>
+  <outline>
+    <contour>
+      <point x="48" y="696" type="line" smooth="yes"/>
+      <point x="40" y="696"/>
+      <point x="40" y="687" type="qcurve" smooth="yes"/>
+      <point x="40" y="354" type="line" smooth="yes"/>
+      <point x="40" y="346"/>
+      <point x="48" y="346" type="qcurve" smooth="yes"/>
+      <point x="93" y="346" type="line" smooth="yes"/>
+      <point x="103" y="346"/>
+      <point x="103" y="354" type="qcurve" smooth="yes"/>
+      <point x="103" y="687" type="line" smooth="yes"/>
+      <point x="103" y="696"/>
+      <point x="93" y="696" type="qcurve" smooth="yes"/>
+    </contour>
+    <contour>
+      <point x="40" y="-121" type="line" smooth="yes"/>
+      <point x="40" y="-129"/>
+      <point x="48" y="-129" type="qcurve" smooth="yes"/>
+      <point x="93" y="-129" type="line" smooth="yes"/>
+      <point x="103" y="-129"/>
+      <point x="103" y="-120" type="qcurve" smooth="yes"/>
+      <point x="103" y="205" type="line" smooth="yes"/>
+      <point x="103" y="214"/>
+      <point x="93" y="214" type="qcurve" smooth="yes"/>
+      <point x="48" y="214" type="line" smooth="yes"/>
+      <point x="40" y="214"/>
+      <point x="40" y="205" type="qcurve" smooth="yes"/>
+    </contour>
+  </outline>
+</glyph>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="ain.medi" format="2">
+  <advance width="472"/>
+  <unicode hex="FECC"/>
+  <outline>
+    <contour>
+      <point x="480" y="0" type="line"/>
+      <point x="480" y="127" type="line"/>
+      <point x="436" y="127" type="line"/>
+      <point x="489" y="312" type="line" smooth="yes"/>
+      <point x="504" y="359"/>
+      <point x="480" y="393" type="qcurve" smooth="yes"/>
+      <point x="465" y="413"/>
+      <point x="441" y="422" type="qcurve" smooth="yes"/>
+      <point x="425" y="428"/>
+      <point x="406" y="428" type="qcurve" smooth="yes"/>
+      <point x="126" y="428" type="line" smooth="yes"/>
+      <point x="106" y="428"/>
+      <point x="90" y="422" type="qcurve" smooth="yes"/>
+      <point x="66" y="413"/>
+      <point x="52" y="393" type="qcurve" smooth="yes"/>
+      <point x="28" y="359"/>
+      <point x="43" y="311" type="qcurve" smooth="yes"/>
+      <point x="96" y="127" type="line"/>
+      <point x="-8" y="127" type="line"/>
+      <point x="-8" y="0" type="line"/>
+    </contour>
+    <contour>
+      <point x="225" y="127" type="line"/>
+      <point x="176" y="301" type="line"/>
+      <point x="356" y="301" type="line"/>
+      <point x="306" y="127" type="line"/>
+    </contour>
+  </outline>
+</glyph>

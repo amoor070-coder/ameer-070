@@ -1,0 +1,4 @@
+# People who contributed to the project.
+
+Ameer Ibrahim (design direction, review)
+The Alexandria Project Authors (hamza forms, OFL)

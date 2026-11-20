@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="alefMaksura.init" format="2">
+  <advance width="322"/>
+  <outline>
+    <contour>
+      <point x="175" y="77" type="qcurve" smooth="yes"/>
+      <point x="-8" y="77" type="line"/>
+      <point x="-8" y="0" type="line"/>
+      <point x="264" y="0" type="line" smooth="yes"/>
+      <point x="274" y="0"/>
+      <point x="274" y="10" type="qcurve" smooth="yes"/>
+      <point x="274" y="363" type="line" smooth="yes"/>
+      <point x="274" y="373"/>
+      <point x="264" y="373" type="qcurve" smooth="yes"/>
+      <point x="263" y="373"/>
+      <point x="261" y="372"/>
+      <point x="259" y="372" type="qcurve"/>
+      <point x="201" y="338" type="line" smooth="yes"/>
+      <point x="196" y="335"/>
+      <point x="196" y="330" type="qcurve" smooth="yes"/>
+      <point x="196" y="98" type="line" smooth="yes"/>
+      <point x="196" y="90"/>
+      <point x="184" y="77"/>
+    </contour>
+  </outline>
+</glyph>

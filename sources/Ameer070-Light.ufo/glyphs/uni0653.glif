@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="uni0653" format="2">
+  <unicode hex="0653"/>
+  <outline>
+    <contour>
+      <point x="-52" y="60" type="qcurve" smooth="yes"/>
+      <point x="-33" y="61"/>
+      <point x="-12" y="42" type="qcurve" smooth="yes"/>
+      <point x="20" y="14"/>
+      <point x="54" y="15" type="qcurve" smooth="yes"/>
+      <point x="90" y="16"/>
+      <point x="119" y="51" type="qcurve"/>
+      <point x="93" y="74" type="line"/>
+      <point x="73" y="51"/>
+      <point x="52" y="50" type="qcurve" smooth="yes"/>
+      <point x="33" y="49"/>
+      <point x="12" y="68" type="qcurve" smooth="yes"/>
+      <point x="-20" y="97"/>
+      <point x="-54" y="94" type="qcurve" smooth="yes"/>
+      <point x="-90" y="92"/>
+      <point x="-120" y="56" type="qcurve"/>
+      <point x="-93" y="33" type="line"/>
+      <point x="-72" y="58"/>
+    </contour>
+  </outline>
+</glyph>

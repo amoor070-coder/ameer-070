@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="kaf.init" format="2">
+  <advance width="439"/>
+  <unicode hex="FEDB"/>
+  <outline>
+    <contour>
+      <point x="51" y="400" type="qcurve" smooth="yes"/>
+      <point x="60" y="378"/>
+      <point x="80" y="359" type="qcurve" smooth="yes"/>
+      <point x="288" y="160" type="line"/>
+      <point x="295" y="154"/>
+      <point x="299" y="142" type="qcurve"/>
+      <point x="303" y="132"/>
+      <point x="303" y="124" type="qcurve"/>
+      <point x="-8" y="124" type="line"/>
+      <point x="-8" y="0" type="line"/>
+      <point x="301" y="0" type="line" smooth="yes"/>
+      <point x="355" y="0"/>
+      <point x="390" y="33" type="qcurve" smooth="yes"/>
+      <point x="422" y="64"/>
+      <point x="426" y="111" type="qcurve" smooth="yes"/>
+      <point x="430" y="148"/>
+      <point x="415" y="185" type="qcurve" smooth="yes"/>
+      <point x="401" y="223"/>
+      <point x="374" y="250" type="qcurve" smooth="yes"/>
+      <point x="183" y="432" type="line"/>
+      <point x="451" y="577" type="line"/>
+      <point x="451" y="714" type="line"/>
+      <point x="450" y="717" type="line"/>
+      <point x="112" y="535" type="line" smooth="yes"/>
+      <point x="56" y="504"/>
+      <point x="45" y="458" type="qcurve" smooth="yes"/>
+      <point x="38" y="429"/>
+    </contour>
+  </outline>
+</glyph>

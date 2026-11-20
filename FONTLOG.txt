@@ -1,0 +1,23 @@
+FONTLOG for Ameer 070
+=====================
+
+Basic Font Information
+----------------------
+Ameer 070 is a bilingual Arabic/Latin sans-serif family in four static weights: Light (300), Regular (400), Bold (700), Black (900).
+
+ChangeLog
+---------
+2026-11-20 (v2.000)
+- Arabic letters redrawn as a monoline system with soft hexagon-inspired joins; every letter balanced against
+  reference proportions (top/bottom and left/right rulers), in all four weights.
+- New soft-hexagon dots with weight-aware spacing; hamza family adapted from Alexandria (OFL) and matched to each weight's stroke.
+- Latin a-z, A-Z, figures, accented letters and symbols redrawn/rebuilt on the new metrics; new optical kerning.
+- Added symbols: prime/double prime, arrows, approx/relations, per mille, Rial sign, thin/figure/hair spaces.
+- Collision/spacing pass across all Arabic letter pairs; mark anchors regenerated from the new outlines.
+
+2026 (v1.200)
+- Initial release.
+
+Acknowledgements
+----------------
+Hamza forms adapted from Alexandria by Mohamed Gaber and The Alexandria Project Authors, licensed under the SIL Open Font License 1.1.

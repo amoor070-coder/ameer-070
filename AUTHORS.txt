@@ -1,0 +1,4 @@
+# This is the official list of project authors for copyright purposes.
+# Format: Name <email or URL>
+
+Ameer Ibrahim <https://github.com/amoor070-coder>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="superscriptAlef" format="2">
+  <unicode hex="0670"/>
+  <outline>
+    <contour>
+      <point x="-22" y="201" type="line" smooth="yes"/>
+      <point x="-27" y="198"/>
+      <point x="-27" y="192" type="qcurve" smooth="yes"/>
+      <point x="-27" y="10" type="line" smooth="yes"/>
+      <point x="-27" y="0"/>
+      <point x="-17" y="0" type="qcurve" smooth="yes"/>
+      <point x="17" y="0" type="line" smooth="yes"/>
+      <point x="27" y="0"/>
+      <point x="27" y="9" type="qcurve" smooth="yes"/>
+      <point x="27" y="212" type="line" smooth="yes"/>
+      <point x="27" y="222"/>
+      <point x="17" y="222" type="qcurve"/>
+      <point x="17" y="222"/>
+      <point x="14" y="221"/>
+      <point x="12" y="221" type="qcurve"/>
+    </contour>
+  </outline>
+</glyph>

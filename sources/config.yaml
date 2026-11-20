@@ -1,0 +1,13 @@
+sources:
+  - Ameer070-Light.ufo
+  - Ameer070-Regular.ufo
+  - Ameer070-Bold.ufo
+  - Ameer070-Black.ufo
+familyName: "Ameer 070"
+buildVariable: false
+buildStatic: true
+buildOTF: false
+buildTTF: true
+buildWebfont: false
+autohintTTF: false
+outputDir: "../fonts"

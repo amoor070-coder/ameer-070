@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="tatweel.medi" format="2">
+  <advance width="240"/>
+  <unicode hex="0640"/>
+  <outline>
+    <contour>
+      <point x="248" y="77" type="line"/>
+      <point x="-8" y="77" type="line"/>
+      <point x="-8" y="0" type="line"/>
+      <point x="248" y="0" type="line"/>
+    </contour>
+  </outline>
+</glyph>

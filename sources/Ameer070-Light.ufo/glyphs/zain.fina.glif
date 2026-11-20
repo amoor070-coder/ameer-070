@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="zain.fina" format="2">
+  <advance width="292"/>
+  <unicode hex="FEB0"/>
+  <outline>
+    <contour>
+      <point x="184" y="90" type="line" smooth="yes"/>
+      <point x="184" y="-33"/>
+      <point x="130" y="-88" type="qcurve" smooth="yes"/>
+      <point x="81" y="-142"/>
+      <point x="-17" y="-172" type="qcurve"/>
+      <point x="-5" y="-228" type="line"/>
+      <point x="109" y="-193"/>
+      <point x="169" y="-111" type="qcurve"/>
+      <point x="219" y="-65"/>
+      <point x="234" y="0" type="qcurve"/>
+      <point x="300" y="0" type="line"/>
+      <point x="300" y="57" type="line"/>
+      <point x="240" y="57" type="line"/>
+      <point x="241" y="73"/>
+      <point x="241" y="90" type="qcurve" smooth="yes"/>
+      <point x="241" y="341" type="line"/>
+      <point x="184" y="341" type="line"/>
+    </contour>
+    <contour>
+      <point x="196" y="478" type="qcurve" smooth="yes"/>
+      <point x="183" y="471" type="line" smooth="yes"/>
+      <point x="167" y="462"/>
+      <point x="167" y="445" type="qcurve" smooth="yes"/>
+      <point x="167" y="432" type="line" smooth="yes"/>
+      <point x="167" y="415"/>
+      <point x="183" y="406" type="qcurve"/>
+      <point x="196" y="400" type="line"/>
+      <point x="212" y="391"/>
+      <point x="228" y="400" type="qcurve"/>
+      <point x="241" y="406" type="line"/>
+      <point x="257" y="415"/>
+      <point x="257" y="432" type="qcurve" smooth="yes"/>
+      <point x="257" y="445" type="line" smooth="yes"/>
+      <point x="257" y="462"/>
+      <point x="241" y="471" type="qcurve" smooth="yes"/>
+      <point x="228" y="478" type="line" smooth="yes"/>
+      <point x="212" y="486"/>
+    </contour>
+  </outline>
+</glyph>
